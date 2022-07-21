@@ -1,5 +1,8 @@
 const assert = require('assert');
 const { Worker, MessageChannel, MessagePort, isMainThread, parentPort } = require('worker_threads');
+
+const sharedObj = { a: 1, b: 2 };
+
 if (isMainThread) {
   const worker = new Worker(__filename);
   // Create a channel in which further messages will be sent
@@ -13,6 +16,7 @@ if (isMainThread) {
   // Receive messages from the worker thread on the custom channel
   subChannel.port2.on('message', (value) => {
     console.log('received:', value);
+    console.log('main thread sharedObj', sharedObj);
   });
 } else {
   // Receive the custom channel info from the parent thread
@@ -24,5 +28,8 @@ if (isMainThread) {
     // Send message to the parent thread through the channel
     value.hereIsYourPort.postMessage('the worker sent this');
     value.hereIsYourPort.close();
+
+    sharedObj['c'] = 3;
+    console.log('sub thread sharedObj', sharedObj);
   });
 }

@@ -1,0 +1,21 @@
+{
+  "name": "lab-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PolarBearAndrew/lab-nodejs.git"
+  },
+  "author": "AndrewChen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PolarBearAndrew/lab-nodejs/issues"
+  },
+  "homepage": "https://github.com/PolarBearAndrew/lab-nodejs#readme",
+  "dependencies": {
+    "workerpool": "^6.2.1"
+  }
+}

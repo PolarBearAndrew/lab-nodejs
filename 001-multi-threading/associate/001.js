@@ -1,5 +1,7 @@
 const { Worker, isMainThread, parentPort } = require('worker_threads');
 
+const sharedObject = {};
+
 function doWork() {
   if (isMainThread) {
     mainThreadWork();
@@ -10,11 +12,6 @@ function doWork() {
 
 function mainThreadWork() {
   const worker = new Worker(__filename);
-  // Receive messages from the worker thread
-  worker.once('message', (message) => {
-    console.log(message + ' received from the worker thread!');
-  });
-  // Send a ping message to the spawned worker thread
   worker.postMessage('ping');
 }
 
