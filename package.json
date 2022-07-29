@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/PolarBearAndrew/lab-nodejs#readme",
   "dependencies": {
+    "worker-farm": "^1.7.0",
     "workerpool": "^6.2.1"
   }
 }
